@@ -7,15 +7,15 @@ $(document).ready(function () {
     method: "GET",
     dataType: "JSON",
 
-    beforeSend: function () {
+    beforeSend: () => {
       $(".progress").show();
     },
 
-    complete: function () {
+    complete: () => {
       $(".progress").hide();
     },
 
-    success: function (newsdata) {
+    success: (newsdata) => {
       let output = "";
       let latestNews = newsdata.articles;
       for (var i in latestNews) {
@@ -37,7 +37,7 @@ $(document).ready(function () {
 
         </style>
 
-          <div class="col l6 m2 s12">
+          <div class="col l6 m6 s12">
           <div class="card medium hoverable">
             <div class="card-image">
               <img src="${latestNews[i].urlToImage}" class="responsive-img" alt="${latestNews[i].title}">
